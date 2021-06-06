@@ -13,7 +13,7 @@ const EditProfile = () => {
   if (!user) {
     return null;
   }
-  useCheck(user, "tutor");
+  // useCheck(user, "tutor");
   const [formData, setformData] = useState(null);
   useEffect(() => {
     const fetcher = async () => {
