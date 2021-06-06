@@ -4,7 +4,7 @@ import states from "@/utils/states";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useCheck from "utils/useCheck";
 
@@ -27,7 +27,7 @@ const EditProfile = () => {
   if (!formData) return <Loading />;
   return <TutorForm formData={formData} />;
 };
-const TutorForm = ({ formData }) => {
+const TutorForm = memo(({ formData }) => {
   const router = useRouter();
   const [focus, setFocus] = useState("text");
 
@@ -232,7 +232,7 @@ const TutorForm = ({ formData }) => {
       </main>
     </>
   );
-};
+});
 
 export const getServerSideProps = withPageAuthRequired();
 

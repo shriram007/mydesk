@@ -5,13 +5,13 @@ import { useCallback, useEffect, useState } from "react";
 const useCheck = (user, role) => {
   const [status, setStatus] = useState();
   const router = useRouter();
+  const check = useCallback(async () => {
+    const response = await axios.get(`/api/check`);
+    const data = response.data;
+    setStatus(data);
+  },[user]);
 
   useEffect(() => {
-    const check = async () => {
-      const response = await axios.get(`/api/check`);
-      const data = response.data;
-      setStatus(data);
-    };
     if (user["https://mydesk.app/roles"] !== role) {
       router.replace("/");
     } else {
