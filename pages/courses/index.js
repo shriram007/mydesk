@@ -85,8 +85,9 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    src="assets/img/course4.jpg"
+                    src="assets/img/course5.jpg"
                     className="img-fluid"
+
                     alt="..."
                   />
                   <div className="course-content">
@@ -173,7 +174,7 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    src="assets/img/course4.jpg"
+                    src="assets/img/course5.jpg"
                     className="img-fluid"
                     alt="..."
                   />

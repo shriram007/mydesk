@@ -60,7 +60,7 @@ const Home = () => {
                 data-aos="fade-left"
                 data-aos-delay={100}
               >
-                <img src="assets/img/home2.gif" className="img-fluid" alt />
+                <img src="assets/img/home2.gif" className="img-fluid" alt="" />
               </div>
               <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                 <h3>Online Learning is the New Usual</h3>
