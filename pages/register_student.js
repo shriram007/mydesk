@@ -160,9 +160,9 @@ const Register_student = () => {
                   />
                 </div>
                 <div className="form-group">
-                  {errors.parent?.type === "required" &&
+                  {errors.parentmobile?.type === "required" &&
                     "Parent mobile number is required"}
-                  {errors.parent?.type === "pattern" &&
+                  {errors.parentmobile?.type === "pattern" &&
                     "Enter a valid mobile number"}
                   <input
                     type="number"
