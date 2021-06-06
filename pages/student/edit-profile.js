@@ -32,6 +32,8 @@ const EditProfile = () => {
 const StudentForm = memo(({ formData }) => {
   const router = useRouter();
   const [focus, setFocus] = useState("text");
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     formState: { errors },
@@ -46,19 +48,21 @@ const StudentForm = memo(({ formData }) => {
   const selectedstate = watch("state");
 
   const onSubmit = (data) => {
+    setLoading(true)
     axios({
       method: "patch",
       url: "/api/student",
       data: data,
     })
       .then(function (response) {
+        setLoading(false)
         router.replace("/student/profile");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
-
+  if (loading) return <Loading />;
   return (
     <>
       <Header />
