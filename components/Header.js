@@ -49,7 +49,7 @@ const Header = () => {
             {!user && (
               <li>
                 <Link href="/api/auth/login">
-                  <a className={"active"}> Sign In/Register </a>
+                  <a className={"fw-bold"}> Sign In/Register </a>
                 </Link>
               </li>
             )}
