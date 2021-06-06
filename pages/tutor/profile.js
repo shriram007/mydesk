@@ -11,7 +11,7 @@ const Profile = () => {
   if (!user) {
     return null;
   }
-  // useCheck(user, "tutor");
+  useCheck(user, "tutor");
   const fetcher = (url) => axios.get(url).then((res) => res.data);
   const { data, error } = useSWR("/api/tutor", fetcher);
 
