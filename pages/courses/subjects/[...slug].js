@@ -80,7 +80,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const [cls, board] = params.slug;
   const res = await axios.get(
-    `http://localhost:3000/api/subjects/${cls}/${board}`
+    `${process.env.URL}/api/subjects/${cls}/${board}`
   );
   const data = await res.data;
   if (!data) {
