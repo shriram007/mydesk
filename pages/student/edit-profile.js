@@ -14,16 +14,17 @@ const EditProfile = () => {
     return null;
   }
   useCheck(user, "student");
-  const [formData, setformData] = useState({});
+  const [formData, setformData] = useState(null);
   useEffect(() => {
     const fetcher = async () => {
       const response = await fetch("/api/student");
       const data = await response.json();
-      console.log(data.profile);
-      setformData(data.profile);
+      setformData({ ...data.profile, board: data.profile.board.toUpperCase() });
     };
+
     fetcher();
   }, []);
+
   if (!formData) return <Loading />;
   return <StudentForm formData={formData} />;
 };
@@ -40,7 +41,7 @@ const StudentForm = ({ formData }) => {
     mode: "all",
     criteriaMode: "all",
     shouldFocusError: true,
-    defaultValues: { ...formData },
+    defaultValues: formData,
   });
   const selectedstate = watch("state");
 
@@ -51,13 +52,13 @@ const StudentForm = ({ formData }) => {
       data: data,
     })
       .then(function (response) {
-        console.log(response);
         router.replace("/student/profile");
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
   return (
     <>
       <Header />
@@ -95,6 +96,7 @@ const StudentForm = ({ formData }) => {
                             type="text"
                             className="form-control mb-1"
                             id="name"
+                            name="name"
                             placeholder="Name"
                             {...register("name", { required: true })}
                           />
@@ -262,9 +264,9 @@ const StudentForm = ({ formData }) => {
                             Parent Mobile Number
                           </label>
                           <br />
-                          {errors.parent?.type === "required" &&
+                          {errors.parentmobile?.type === "required" &&
                             "Parent mobile number is required"}
-                          {errors.parent?.type === "pattern" &&
+                          {errors.parentmobile?.type === "pattern" &&
                             "Enter a valid mobile number"}
                           <input
                             type="number"
