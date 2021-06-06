@@ -24,26 +24,26 @@ const Header = () => {
           <ul>
             <li>
               <Link href="/">
-                <a className={router.pathname === "/" && "active"}>Home</a>
+                <a className={router.pathname === "/" ? "active" : ""}>Home</a>
               </Link>
             </li>
             <li>
               <Link href="/about">
-                <a className={router.pathname === "/about" && "active"}>
+                <a className={router.pathname === "/about" ? "active" : ""}>
                   About
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/courses">
-                <a className={router.pathname === "/courses" && "active"}>
+                <a className={router.pathname === "/courses" ? "active" : ""}>
                   Courses
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/faq">
-                <a className={router.pathname === "/faq" && "active"}>FAQ</a>
+                <a className={router.pathname === "/faq" ? "active" : ""}>FAQ</a>
               </Link>
             </li>
             {!user && (
@@ -55,7 +55,7 @@ const Header = () => {
             )}
             <li>
               <Link href="/contact">
-                <a className={router.pathname === "/contact" && "active"}>
+                <a className={router.pathname === "/contact" ? "active" : ""}>
                   Contact
                 </a>
               </Link>

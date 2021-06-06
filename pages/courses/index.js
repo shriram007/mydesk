@@ -11,11 +11,6 @@ const Courses = () => {
         <div className="breadcrumbs">
           <div className="container">
             <h2>Courses</h2>
-            <p>
-              Here are the list of subjects covered, which has been classified
-              into 3 categories as Private Class, Regular Class, Hourly Class
-              for Stateboard and CBSE
-            </p>
           </div>
         </div>
         {/* End Breadcrumbs */}
@@ -27,7 +22,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course3.jpg"
                     className="img-fluid"
                     alt="..."
@@ -49,7 +43,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-md-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course2.jpg"
                     className="img-fluid"
                     alt="..."
@@ -71,7 +64,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course1.png"
                     className="img-fluid"
                     alt="..."
@@ -93,8 +85,7 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXpcMmUdSSqCz_jjiMGO0-lP6GUlHixfL-oqq136yErCPUcTfQcCXSMp1OOvyUU7Xz95A&usqp=CAU"
+                    src="assets/img/course4.jpg"
                     className="img-fluid"
                     alt="..."
                   />
@@ -122,7 +113,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course3.jpg"
                     className="img-fluid"
                     alt="..."
@@ -143,7 +133,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-md-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course2.jpg"
                     className="img-fluid"
                     alt="..."
@@ -164,7 +153,6 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
                     src="assets/img/course1.png"
                     className="img-fluid"
                     alt="..."
@@ -185,8 +173,7 @@ const Courses = () => {
               <div className="col-lg-3 col-md-3 d-flex align-items-stretch mt-4 mt-lg-0">
                 <div className="course-item">
                   <img
-                    style={{ height: "172.53px", width: 259 }}
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXpcMmUdSSqCz_jjiMGO0-lP6GUlHixfL-oqq136yErCPUcTfQcCXSMp1OOvyUU7Xz95A&usqp=CAU"
+                    src="assets/img/course4.jpg"
                     className="img-fluid"
                     alt="..."
                   />
