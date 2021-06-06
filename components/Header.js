@@ -70,7 +70,7 @@ const Header = () => {
             {user && (
               <li className="dropdown">
                 <a href="#">
-                  <span>{user.email}</span>
+                  <span className="fw-bold">{user.email}</span>
                 </a>
                 <ul>
                   <li>
