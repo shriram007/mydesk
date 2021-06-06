@@ -9,7 +9,7 @@ handler.use(connectDB);
 
 handler.get(async (req, res) => {
   const token = getSession(req, res);
-
+  res.status(200).json(token);
   let user;
   if (token.user["https://mydesk.app/roles"] === "tutor") {
     user = await Tutor.findOne({ email: token.user.email });
