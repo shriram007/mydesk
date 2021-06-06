@@ -1,9 +1,34 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { useUser } from "@auth0/nextjs-auth0";
+import { useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
+const notify = () =>
+  toast(
+    "Please verify your e-mail to gain full access , Make sure that you re-login after verfiying your e-mail",
+    {
+      style: {
+        border: "1px solid #4FB2BF",
+        padding: "16px",
+        backgroundColor: "#4FB2BF",
+        color: "#fff",
+      },
+      duration: 3000,
+      position: "bottom-center",
+    }
+  );
 const Home = () => {
-  
+  const { user } = useUser();
+  useEffect(() => {
+    if (user) {
+      if (!user.email_verified) {
+        notify();
+      }
+    }
+  }, [user]);
   return (
     <>
+      <Toaster />
       <Header />
       {/* ======= Hero Section ======= */}
       <section

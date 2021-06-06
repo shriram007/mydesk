@@ -16,11 +16,11 @@ const Profile = () => {
   const fetcher = (url) => axios.get(url).then((res) => res.data);
   const { data, error } = useSWR("/api/student", fetcher);
 
-  if (error) return <h1>failed to load</h1>;
   if (!data) return <Loading />;
   if (!data.profile) {
     return <Loading />;
   }
+  if (error) return <h1>failed to load</h1>;
   return (
     <>
       <Header />

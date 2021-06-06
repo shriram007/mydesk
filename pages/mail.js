@@ -1,11 +1,26 @@
-import React from 'react'
+import { useUser } from "@auth0/nextjs-auth0";
+import { useRouter } from "next/router";
+import React, { useEffect } from "react";
 
 const mail = () => {
+  const { user } = useUser();
+  const router = useRouter();
+  if (!user) return null;
+  useEffect(() => {
+    if (user.email_verified) {
+      router.replace("/")
+    }
+  }, []);
   return (
-    <h1>
-      Please verify your mail first
-    </h1>
-  )
-}
+    <div className="d-flex justify-content-center align-items-center" style={{height: "100vh" , width: "100vw"}}>
+    <div className="d-flex justify-content-center align-items-center p-3" style={{height: "100px" , width: "auto" , backgroundColor : "#4FB2BF" , borderRadius : "15px"}}>
+      <span>
+        Please verify your e-mail to gain full access , Make sure that you
+        re-login after verfiying your e-mail
+      </span>
+    </div>
+    </div>
+  );
+};
 
-export default mail
+export default mail;

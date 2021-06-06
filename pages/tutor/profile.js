@@ -15,11 +15,11 @@ const Profile = () => {
   const fetcher = (url) => axios.get(url).then((res) => res.data);
   const { data, error } = useSWR("/api/tutor", fetcher);
 
-  if (error) return <h1>failed to load</h1>;
   if (!data) return <Loading />;
   if (!data.profile) {
     return <Loading />;
   }
+  if (error) return <h1>failed to load</h1>;
   return (
     <>
       <Header />
@@ -48,9 +48,7 @@ const Profile = () => {
                     <div className="d-flex flex-column align-items-center text-center pb-4">
                       <div className="mt-3">
                         <h4>Bio</h4>
-                        <p>
-                        {data.profile.bio}
-                        </p>
+                        <p>{data.profile.bio}</p>
                       </div>
                     </div>
                   </div>
@@ -64,7 +62,9 @@ const Profile = () => {
                       <div className="col-sm-3">
                         <h6 className="mb-0">Name</h6>
                       </div>
-                      <div className="col-sm-9 text-secondary">{data.profile.name}</div>
+                      <div className="col-sm-9 text-secondary">
+                        {data.profile.name}
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
@@ -72,7 +72,7 @@ const Profile = () => {
                         <h6 className="mb-0">Email</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                      {data.email}
+                        {data.email}
                       </div>
                     </div>
                     <hr />
@@ -80,7 +80,9 @@ const Profile = () => {
                       <div className="col-sm-3">
                         <h6 className="mb-0">Mobile No.</h6>
                       </div>
-                      <div className="col-sm-9 text-secondary">{data.profile.mobile}</div>
+                      <div className="col-sm-9 text-secondary">
+                        {data.profile.mobile}
+                      </div>
                     </div>
                     <hr />
                     <div className="row">
@@ -88,7 +90,7 @@ const Profile = () => {
                         <h6 className="mb-0">Address</h6>
                       </div>
                       <div className="col-sm-9 text-secondary">
-                      {data.profile.city}, {data.profile.state}
+                        {data.profile.city}, {data.profile.state}
                       </div>
                     </div>
                     <hr />
