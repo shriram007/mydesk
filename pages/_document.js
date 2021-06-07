@@ -12,11 +12,16 @@ class MyDocument extends Document {
         <Head>
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-            rel="stylesheet"
+            as="style"
+            rel="stylesheet preload prefetch"
+            onload="this.rel='stylesheet'"
+            crossorigin="anonymous"
           />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-            rel="stylesheet"
+            as="style"
+            rel="stylesheet preload prefetch"
+            onload="this.rel='stylesheet'"
           />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.5.0/font/bootstrap-icons.min.css"
@@ -34,20 +39,25 @@ class MyDocument extends Document {
           />
           <link
             href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-            rel="stylesheet"
+            as="style"
+            rel="stylesheet preload prefetch"
+            onload="this.rel='stylesheet'"
+            crossorigin="anonymous"
           />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.5.8/swiper-bundle.css"
-            rel="stylesheet"
+            as="style"
+            rel="stylesheet preload prefetch"
+            onload="this.rel='stylesheet'"
+            crossorigin="anonymous"
           />
           <link
             href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
-            rel="stylesheet"
+            as="style"
+            rel="stylesheet preload prefetch"
+            onload="this.rel='stylesheet'"
+            crossorigin="anonymous"
           ></link>
-          <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet"
-          />
           <meta name="theme-color" content="#4FB2BF" />
         </Head>
         <body>

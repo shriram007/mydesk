@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import { RecoilRoot } from "recoil";
 import Loading from "../components/Loading";
 import "../styles/opensans.css";
-import "../styles/style.css";
+import "../styles/style.min.css";
 import { Toaster } from "react-hot-toast";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Aos.init({
-      duration: 1000,
+      duration: 500,
       easing: "ease-in-out",
       once: true,
       mirror: false,
