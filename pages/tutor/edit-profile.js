@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useCheck from "utils/useCheck";
-
+import notify from "@/utils/notify";
 const EditProfile = () => {
   const { user } = useUser();
   if (!user) {
@@ -54,9 +54,11 @@ const TutorForm = memo(({ formData }) => {
       .then(function (response) {
         setLoading(false);
         router.replace("/tutor/profile");
+        notify("Changes saved", "success");
       })
       .catch(function (error) {
         console.log(error);
+        notify("Failed", "error");
       });
   };
   if (loading) return <Loading />;
@@ -211,7 +213,7 @@ const TutorForm = memo(({ formData }) => {
                           />
                         </div>
                         <div className="form-group">
-                        {errors.mode?.type === "required" &&
+                          {errors.mode?.type === "required" &&
                             "Mode is required"}
                           <label
                             className="fw-bold form-label text-dark"
@@ -255,7 +257,11 @@ const TutorForm = memo(({ formData }) => {
                 Save changes
               </button>
               &nbsp;
-              <button type="button" className="default-button">
+              <button
+                type="button"
+                className="default-button"
+                onClick={() => router.back()}
+              >
                 Cancel
               </button>
               <br />

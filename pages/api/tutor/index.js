@@ -22,7 +22,7 @@ handler.post(async (req, res) => {
   const data = req.body;
   const userinfo = getSession(req, res);
   let tutor = await Tutor.findOne({ email: userinfo.user.email });
-  const { name, dob, city, mobile, state, bio , mode} = data;
+  const { name, dob, city, mobile, state, bio, mode } = data;
   const created = new Tutorprofile({
     name,
     dob,
@@ -80,34 +80,47 @@ handler.put(async (req, res) => {
   let subject = await Subject.findOne({ name: sub, class: cls, board: board });
   const unique = tutorprofile.subjects.find(
     (s) => s.toString() === subject._id.toString()
-    );
-    if (!!unique) {
-      res.status(500).send("Already exists");
+  );
+  if (!!unique) {
+    res.status(500).send("Already exists");
+  }
+  if (!unique) {
+    try {
+      const sess = await mongoose.startSession();
+      sess.startTransaction();
+      tutorprofile.subjects.push(subject);
+      subject.tutors.push(tutor);
+      await tutorprofile.save({ session: sess });
+      await subject.save({ session: sess });
+      await sess.commitTransaction();
+    } catch (err) {
+      res.status(400).json("failed");
     }
-    if(!unique){
+
+    res.status(200).json("success");
+  }
+});
+
+handler.delete(async (req, res) => {
+  const data = req.body;
+  const userinfo = getSession(req, res);
+  let tutor = await Tutor.findOne({ email: userinfo.user.email });
+  let tutorprofile = await Tutorprofile.findOne({ tutorid: tutor._id });
+  const { subjectid } = data;
+  let subject = await Subject.findById(subjectid);
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    tutorprofile.subjects.push(subject);
-    subject.tutors.push(tutor);
+    tutorprofile.subjects.pull(subject);
+    subject.tutors.pull(tutor);
     await tutorprofile.save({ session: sess });
     await subject.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
     res.status(400).json("failed");
   }
-  
-    res.status(200).json("success");
-  }
+
+  res.status(200).json("success");
 });
-
-handler.delete(async (req,res) => {
-  const data = req.body;
-  const userinfo = getSession(req, res);
-  let tutor = await Tutor.findOne({ email: userinfo.user.email });
-  let tutorprofile = await Tutorprofile.findOne({ tutorid: tutor._id });
-  const { subjectid } = data;
-})
-
 
 export default withApiAuthRequired(handler);

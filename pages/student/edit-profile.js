@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import useCheck from "utils/useCheck";
-
+import notify from "@/utils/notify";
 const EditProfile = () => {
   const { user } = useUser();
   if (!user) {
@@ -48,18 +48,20 @@ const StudentForm = memo(({ formData }) => {
   const selectedstate = watch("state");
 
   const onSubmit = (data) => {
-    setLoading(true)
+    setLoading(true);
     axios({
       method: "patch",
       url: "/api/student",
       data: data,
     })
       .then(function (response) {
-        setLoading(false)
+        setLoading(false);
         router.replace("/student/profile");
+        notify("Changes saved", "success");
       })
       .catch(function (error) {
         console.log(error);
+        notify("Failed", "error");
       });
   };
   if (loading) return <Loading />;
@@ -295,7 +297,11 @@ const StudentForm = memo(({ formData }) => {
                 Save changes
               </button>
               &nbsp;
-              <button type="button" className="default-button">
+              <button
+                type="button"
+                className="default-button"
+                onClick={() => router.back()}
+              >
                 Cancel
               </button>
               <br />

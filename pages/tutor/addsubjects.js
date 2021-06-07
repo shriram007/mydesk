@@ -29,10 +29,11 @@ const addsubjects = () => {
       .then(function (response) {
         console.log(response);
         router.replace("/tutor/dashboard");
+        notify("Addes subject", "success");
       })
       .catch(function (error) {
         if (error.response.data === "Already exists") {
-          notify("Subject already added","error")
+          notify("Subject already added", "error");
         }
       });
   };
@@ -139,7 +140,11 @@ const addsubjects = () => {
                 Create Subject
               </button>
               &nbsp;
-              <button type="button" className="default-button">
+              <button
+                type="button"
+                className="default-button"
+                onClick={() => router.back()}
+              >
                 Cancel
               </button>
               <br />
