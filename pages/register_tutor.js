@@ -218,7 +218,35 @@ const Register_tutor = () => {
                   })}
                 />
               </div>
+              <div className="form-group">
+                <label
+                  className="fw-bold form-label text-dark"
+                  style={{ display: "block" }}
+                >
+                  Mode
+                </label>
+                {errors.mode?.type === "required" && "Mode is required"} <br/>
+                <input
+                  type="checkbox"
+                  className="form-check-input "
+                  value="regular"
+                  {...register("mode", {
+                    required: true,
+                  })}
+                />
+                <label className="form-checkbox text-dark ">Regular</label>
 
+                <input
+                  type="checkbox"
+                  className="form-check-input "
+                  value="private"
+                  style={{ marginLeft: "20px" }}
+                  {...register("mode", {
+                    required: true,
+                  })}
+                />
+                <label className="form-checkbox text-dark">Private</label>
+              </div>
               <div className="form-group">
                 <button type="submit" className="btn btn-block create-account">
                   Save Details

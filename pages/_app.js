@@ -6,7 +6,7 @@ import { RecoilRoot } from "recoil";
 import Loading from "../components/Loading";
 import "../styles/opensans.css";
 import "../styles/style.css";
-
+import { Toaster } from "react-hot-toast";
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Aos.init({
@@ -28,7 +28,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
       <RecoilRoot>
-        {loading ? <Loading /> : <Component {...pageProps} />}
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            <Toaster />
+            <Component {...pageProps} />
+          </>
+        )}
       </RecoilRoot>
     </UserProvider>
   );

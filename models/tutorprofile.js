@@ -31,14 +31,18 @@ let tutorprofile = new Schema({
     type: Number,
     required: true,
   },
-  mode: {
-    type: String,
-    enum: ['regular', 'hourly' , 'private' ]
-  },
-  subject: [{
-    type: mongoose.Types.ObjectId,
-    ref: "Subject",
-  }]
+  mode: [
+    {
+      type: String,
+      enum: ["regular", "private"],
+    },
+  ],
+  subjects: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: "Subject",
+    },
+  ],
 });
 
 mongoose.models = {};

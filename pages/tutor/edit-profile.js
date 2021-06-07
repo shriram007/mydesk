@@ -44,16 +44,15 @@ const TutorForm = memo(({ formData }) => {
     defaultValues: formData,
   });
   const selectedstate = watch("state");
-
   const onSubmit = (data) => {
-    setLoading(true)
+    setLoading(true);
     axios({
       method: "patch",
       url: "/api/tutor",
       data: data,
     })
       .then(function (response) {
-        setLoading(false)
+        setLoading(false);
         router.replace("/tutor/profile");
       })
       .catch(function (error) {
@@ -210,6 +209,40 @@ const TutorForm = memo(({ formData }) => {
                               pattern: /^[6-9]\d{9}$/,
                             })}
                           />
+                        </div>
+                        <div className="form-group">
+                        {errors.mode?.type === "required" &&
+                            "Mode is required"}
+                          <label
+                            className="fw-bold form-label text-dark"
+                            style={{ display: "block" }}
+                          >
+                            Mode
+                          </label>
+                          <input
+                            type="checkbox"
+                            className="form-check-input "
+                            value="regular"
+                            {...register("mode", {
+                              required: true,
+                            })}
+                          />
+                          <label className="form-checkbox text-dark ">
+                            Regular
+                          </label>
+
+                          <input
+                            type="checkbox"
+                            className="form-check-input "
+                            value="private"
+                            style={{ marginLeft: "20px" }}
+                            {...register("mode", {
+                              required: true,
+                            })}
+                          />
+                          <label className="form-checkbox text-dark">
+                            Private
+                          </label>
                         </div>
                       </div>
                     </div>
