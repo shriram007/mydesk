@@ -6,7 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useCheck from "utils/useCheck";
+import useCheck from "@/utils/useCheck";
 import notify from "@/utils/notify";
 const EditProfile = () => {
   const { user } = useUser();
