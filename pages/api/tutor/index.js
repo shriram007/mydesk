@@ -1,6 +1,6 @@
-import Tutor from "@/models/tutor";
-import Tutorprofile from "@/models/tutorprofile";
 import Subject from "@/models/subject";
+import Tutorprofile from "@/models/tutorprofile";
+import Tutor from "@/models/tutor";
 import connectDB from "@/middleware/connectDB";
 import { getSession, withApiAuthRequired } from "@auth0/nextjs-auth0";
 import mongoose from "mongoose";
