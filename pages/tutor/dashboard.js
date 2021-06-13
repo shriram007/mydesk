@@ -31,7 +31,10 @@ const dashboard = () => {
           <div className="d-flex justify-content-around mt-2 ">
             <button
               className="btn btn-light"
-              onClick={() => deleteSubject(subjectid)}
+              onClick={() => {
+                deleteSubject(subjectid);
+                toast.dismiss(t.id);
+              }}
             >
               Yes
             </button>
@@ -71,7 +74,6 @@ const dashboard = () => {
     } catch {
       notify("Error Occured", "error");
     }
-    toast.dismiss();
   };
   return (
     <div>
