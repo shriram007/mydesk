@@ -10,9 +10,10 @@ handler.use(connectDB);
 
 handler.get(async (req, res) => {
   const userinfo = getSession(req, res);
-  let doc = await Student.findOne({ email: userinfo.user.email }).populate(
-    "profile" , '-_id -studentid'
-  );
+  let doc = await Student.findOne({ email: userinfo.user.email }).populate({
+    path: "profile",
+    model: Studentprofile,
+  });
   res.json(doc);
 });
 
