@@ -27,9 +27,8 @@ const addsubjects = () => {
       data: data,
     })
       .then(function (response) {
-        console.log(response);
         router.replace("/tutor/dashboard");
-        notify("Addes subject", "success");
+        notify("Added subject", "success");
       })
       .catch(function (error) {
         if (error.response.data === "Already exists") {

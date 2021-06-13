@@ -155,7 +155,7 @@ h6 {
 * Get Startet Button 
 */
 .get-started-btn {
-  margin-left: 22px;
+  /* margin-left: 22px; */
   background: #4fb2bf;
   color: #fff;
   border-radius: 50px;

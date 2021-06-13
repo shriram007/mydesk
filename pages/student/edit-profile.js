@@ -1,13 +1,14 @@
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
+import notify from "@/utils/notify";
 import states from "@/utils/states";
+import useCheck from "@/utils/useCheck";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import useCheck from "@/utils/useCheck";
-import notify from "@/utils/notify";
+import { mutate } from "swr";
 const EditProfile = () => {
   const { user } = useUser();
   if (!user) {
@@ -55,6 +56,7 @@ const StudentForm = memo(({ formData }) => {
       data: data,
     })
       .then(function (response) {
+        mutate("/api/student", { ...data }, false);
         setLoading(false);
         router.replace("/student/profile");
         notify("Changes saved", "success");

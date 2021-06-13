@@ -1,20 +1,23 @@
 import connectDB from "@/middleware/connectDB";
-import Subject from "@/models/subject";
-import Tutor from "@/models/tutor";
-import Tutorprofile from "@/models/tutorprofile";
 import { getSession, withApiAuthRequired } from "@auth0/nextjs-auth0";
 import mongoose from "mongoose";
 import nc from "next-connect";
+import Tutor from "@/models/tutor";
+import Tutorprofile from "@/models/tutorprofile";
+import Subject from "@/models/subject";
 const handler = nc();
 
 handler.use(connectDB);
 
 handler.get(async (req, res) => {
   const userinfo = getSession(req, res);
-  let doc = await Tutor.findOne({ email: userinfo.user.email }).populate(
-    "profile",
-    "-_id"
-  );
+  let doc = await Tutor.findOne({ email: userinfo.user.email }).populate({
+    path: "profile",
+    populate: {
+      path: "subjects",
+      model: "Subject",
+    },
+  });
   res.json(doc);
 });
 

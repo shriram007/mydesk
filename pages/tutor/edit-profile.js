@@ -1,13 +1,14 @@
 import Header from "@/components/Header";
 import Loading from "@/components/Loading";
+import notify from "@/utils/notify";
 import states from "@/utils/states";
 import { useUser, withPageAuthRequired } from "@auth0/nextjs-auth0";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { memo, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { mutate } from "swr";
 import useCheck from "utils/useCheck";
-import notify from "@/utils/notify";
 const EditProfile = () => {
   const { user } = useUser();
   if (!user) {
@@ -52,6 +53,7 @@ const TutorForm = memo(({ formData }) => {
       data: data,
     })
       .then(function (response) {
+        mutate("/api/tutor", { ...data }, false);
         setLoading(false);
         router.replace("/tutor/profile");
         notify("Changes saved", "success");
