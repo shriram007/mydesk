@@ -44,7 +44,7 @@ Sign up-> courses tab-> Class-> Subject-> Tutors-> Enroll
               </div>
             </li>
             <li data-aos="fade-up" data-aos-delay={400}>
-              <i className="bx bx-help-circle icon-help" /> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" className="collapsed">4.What is the private, regular, and hourly mode of tuition? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
+              <i className="bx bx-help-circle icon-help" /> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" className="collapsed">What is the private, regular, and hourly mode of tuition? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
               <div id="faq-list-4" className="collapse" data-bs-parent=".faq-list">
                 <p>
                   <b>Private tuition</b> -  You will be provided with a private tutor and you will be the only student studying under him/her <br/>
@@ -54,7 +54,7 @@ Sign up-> courses tab-> Class-> Subject-> Tutors-> Enroll
               </div>
             </li>
             <li data-aos="fade-up" data-aos-delay={500}>
-              <i className="bx bx-help-circle icon-help" /> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" className="collapsed">5.How do I pay my fees? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
+              <i className="bx bx-help-circle icon-help" /> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" className="collapsed">How do I pay my fees? <i className="bx bx-chevron-down icon-show" /><i className="bx bx-chevron-up icon-close" /></a>
               <div id="faq-list-5" className="collapse" data-bs-parent=".faq-list">
                 <p>
                  Once your free trial is completed you will be provided with an option to pay for that particular subject and mode of tuition.
