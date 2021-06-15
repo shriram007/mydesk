@@ -6,10 +6,11 @@ const handler = nc();
 handler.use(connectDB);
 
 handler.get(async (req, res) => {
-  const subject = req.query.slug
-  try{
+  const subjectid = req.query.slug
   let doc = await Tutor.find().populate('profile');
   res.status(200).json(doc)
+  try{
+  
   }
   catch{
     res.status(400).json("cannot fetch")
